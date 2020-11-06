@@ -1,5 +1,6 @@
 const insert = require("../database/postgres/insert");
 const chrome = require('selenium-webdriver/chrome');
+const config = require('../config/config')
 
 const screen = {
     width: 1920,
@@ -13,7 +14,7 @@ const severities = ['Light', 'Average', 'Severe']
 exports.selenium = async () => {
     let driver = new Builder().forBrowser('chrome').setChromeOptions(new chrome.Options().headless().windowSize(screen)).build();
     try {
-        await driver.get('https://cbddosagecalculator.com/start/');
+        await driver.get(config.config.SCRAPPING_URL);
 
         let accept = await driver.wait(
             until.elementLocated(By.xpath(`//*[@id='popmake-130']/button`)),

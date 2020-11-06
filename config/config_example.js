@@ -3,5 +3,7 @@ exports.config = {
     PG_PASSWORD: 'root',
     PG_HOST: 'localhost',
     PG_DATABASE: 'golden_seed',
-    PG_PORT: '5432'
+    PG_PORT: '5432',
+    SCRAPPING_URL: 'target_url'
+
 }
