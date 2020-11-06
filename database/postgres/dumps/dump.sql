@@ -1,17 +1,18 @@
-create table dosages
+create table if not exists dosages
 (
-	id serial not null,
+	id serial not null
+		constraint dosages_pk
+			primary key,
 	purpose_of_use varchar(64),
 	severity varchar(64),
-	step varchar(64),
-	weight int,
-	dosage int
+	weight integer,
+	step_one_dosage varchar(10),
+	step_two_dosage varchar(10),
+	step_three_dosage varchar(10)
 );
 
-create unique index dosages_id_uindex
-	on dosages (id);
+alter table dosages owner to postgres;
 
-alter table dosages
-	add constraint dosages_pk
-		primary key (id);
+create unique index if not exists dosages_id_uindex
+	on dosages (id);
 
