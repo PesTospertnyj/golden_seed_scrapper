@@ -45,7 +45,6 @@ exports.selenium = async () => {
 
         for (let disease = 0; disease < diseases.length; disease++) {
             await driver.findElement(By.xpath(`//*[@id="ezfc_element-648-child"]`)).sendKeys(diseases[disease]);
-            // todo: check
             await driver.sleep(1000)
             let element
             try {
